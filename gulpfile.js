@@ -6,6 +6,9 @@ const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
 const browserSync = require('browser-sync').create();
+const svgSprite = require('gulp-svg-sprite');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
 
 function browsersync() {
   browserSync.init({
@@ -27,10 +30,35 @@ function styles() {
   .pipe(browserSync.stream())
 }
 
+function svgSprites() {
+  return src('app/images/icons/*.svg')
+    .pipe(cheerio({
+      run: ($) => {
+        $("[fill]").removeAttr("fill");
+        $("[stroke]").removeAttr("stroke");
+        $("[style]").removeAttr("style");
+      },
+      parserOptions: { xmlMode: true },
+    })
+    )
+    .pipe(replace('&gt;', '>')) 
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: '../sprite.svg',
+          },
+        },
+      })
+    )
+    .pipe(dest('app/images'));
+}
+
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
-    'app/js/main.js'
+    'app/js/main.js',
+    'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
   ])
   .pipe(concat('main.min.js'))
   .pipe(uglify())
@@ -69,8 +97,9 @@ function cleanDist() {
 
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
+  watch(['app/images/icons/*.svg'], svgSprites);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
-  watch(['app/**/*.html']).on('change', browserSync.reload)
+  watch(['app/**/*.html']).on('change', browserSync.reload);
 }
 
 exports.styles = styles;
@@ -79,7 +108,8 @@ exports.browsersync = browsersync;
 exports.watching = watching;
 exports.images = images;
 exports.cleanDist = cleanDist;
+exports.svgSprites = svgSprites;
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(svgSprites, styles, scripts, browsersync, watching);
 

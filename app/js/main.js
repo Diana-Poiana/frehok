@@ -1,33 +1,9 @@
-// объявление фукции (function declaration)
+//FORM STYLER
 
-function name (parameters) {
-  // тело (код) функции
-}
+$(function () {
 
-// имена функций обычно начинаются с 
+  $('.catalog-form__select').styler()
 
-// show - показать что-то;
-// get - вернуть значение;
-// calc - посчитать что-то;
-// create - создать что-то;
-// check - проверить и вернуть логическое значение;
-
-// примеры:
-
-// showMessage
-// getOptions
-// calcSum
-
-
-
-// функция вывода сообщения ==>
-
-function showMessage () {
-  console.log('Сообщение');
-}
-
-// запуск функции ==>
-
-showMessage();
+});
 
 

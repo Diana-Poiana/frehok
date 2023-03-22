@@ -1,18 +1,167 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ФрешОк</title>
+
+  <title>ФрешОк | Главная страница</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons//favicon-16x16.png">
+  <link rel="manifest" href="images/favicons//site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="css/style.min.css">
 </head>
+
 <body>
-  <main>
-    
-  </main>
 
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top__content">
 
+          <div class="header-top__info">
+            <a class="header-top__details-link" href="#">
+              <svg class="header-top__icon" width="32" height="22">
+                <use xlink:href="images/sprite.svg#icon-del-address"></use>
+              </svg>
+              адрес и время доставки
+            </a>
+            <a class="header-top__details-link" href="tel:+380501112233">
+              <svg class="header-top__icon" width="22" height="22">
+                <use xlink:href="images/sprite.svg#icon-tel"></use>
+              </svg>
+              горячая линия 24/7
+            </a>
+          </div>
+
+          <ul class="header-top__list">
+            <li class="header-top__item">
+              <a class="header-top__link" href="#">
+                доставка
+              </a>
+            </li>
+
+            <li class="header-top__item">
+              <a class="header-top__link" href="#">
+                о нас
+              </a>
+            </li>
+
+            <li class="header-top__item">
+              <a class="header-top__link" href="#">
+                новости
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="header__bottom">
+      <div class="container">
+        <div class="header__bottom-content">
+          <a class="header__logo-link logo" href="#">
+            <img class="header__logo-img" src="images/logo.svg" width="200" height="60" alt="логотип сайта">
+          </a>
+
+          <form class="header__catalog-form catalog-form" action="#">
+            <select class="catalog-form__select" name="" id="">
+              <option class="catalog-form__option" value="" disabled selected hidden>
+                Каталог продуктов
+              </option>
+              <option value="1">
+                Овощи и фрукты
+              </option>
+              <option value="2">
+                Бакалея
+              </option>
+              <option value="3">
+                Молочные продукты
+              </option>
+              <option value="4">
+                Хлеб
+              </option>
+              <option value="5">
+                Мясо
+              </option>
+              <option value="6">
+                Колбаса
+              </option>
+              <option value="7">
+                Рыба
+              </option>
+              <option value="8">
+                Алкоголь
+              </option>
+              <option value="9">
+                Напитки
+              </option>
+              <option value="10">
+                Торты
+              </option>
+              <option value="10">
+                Мясо
+              </option>
+              <option value="10">
+                Чай, кофе
+              </option>
+            </select>
+          </form>
+
+          <form class="header__search-form search-form" action="#">
+            <svg class="search-form__search-icon" width="32" height="22">
+              <use xlink:href="images/sprite.svg#icon-search"></use>
+            </svg>
+            <input class="search-form__input" type="text" placeholder="Найти в магазине ...">
+            <button class="search-form__button" type="button">
+              Поиск
+            </button>
+          </form>
+
+          <ul class="personal-cabinet__list">
+            <li class="personal-cabinet__item">
+              <button class="personal-cabinet__button">
+                <svg class="personal-cabinet__icon" width="25" height="32">
+                  <use xlink:href="images/sprite.svg#user-link"></use>
+                </svg>
+              </button>
+            </li>
+
+            <li class="personal-cabinet__item">
+              <button class="personal-cabinet__button">
+                <svg class="personal-cabinet__icon" width="32" height="29">
+                  <use xlink:href="images/sprite.svg#icon-heart"></use>
+                </svg>
+                <span class="personal-cabinet__liked-number">
+                  12
+                </span>
+              </button>
+            </li>
+
+            <li class="personal-cabinet__item">
+              <button class="personal-cabinet__button">
+                <svg class="personal-cabinet__icon" width="32" height="31">
+                  <use xlink:href="images/sprite.svg#icon-cart"></use>
+                </svg>
+                <span class="personal-cabinet__saved-number">
+                  12
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </header>
 
 
 
@@ -20,4 +169,5 @@
 
   <script src="js/main.min.js"></script>
 </body>
+
 </html>
